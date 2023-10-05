@@ -1,0 +1,4 @@
+this is the content which i wanted to write using terraform in another filename
+
+abadsflajldskjfklajsdf
+abadsflajldskjfklajsdfdsf
