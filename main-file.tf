@@ -1,5 +1,5 @@
 resource "local_file" "simple_text" {
-  filename = var.filename1
+  filename = local.filenames
   content  = data.local_file.mycontent.content
 
   depends_on = [
@@ -16,9 +16,20 @@ resource "local_file" "second_text" {
   #  ]
   #  prevent_destroy = true
   #}
-
-}
+} 
 
 data "local_file" "mycontent"{
   filename = ".\\my-reference.txt"
+}
+
+resource "local_file" "list_of_files" {
+  count = length(var.listfiles)
+  filename = var.listfiles[count.index]
+  content = "simple"
+}
+
+resource "local_file" "set_of_files" {
+  filename = each.value
+  for_each = var.fileset
+  content = "simple"
 }
