@@ -16,4 +16,5 @@
 variable "ami_id" {
     description = "AMI ID from US-East-1 region"
     type = string
+    default = "ami-041feb57c611358bd"
 }
